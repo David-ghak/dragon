@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dragon</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js">
+        //These are variables to use
+let XP = 0;
+let health = 100;
+let Gold = 50;
+let CurrentWeapon = 0;
+let fighing;
+let monsterHealth;
+let inventory = ["stick"];
+
+//variables selectors
+//these are the one i wanna work on js like change or add tasks
+const button1 = document.querySelector("#button1");
+const button2 = document.querySelector("#button2");
+const button3 = document.querySelector("#button3");
+const text = document.querySelector("#text");
+const xpText = document.querySelector("#xptext");
+const healthText = document.querySelector("#healthText");
+const goldText = document.querySelector("#goldText");
+const monsterStats = document.querySelector("#monsterStats");
+const monsterNameText = document.querySelector("#monsterName");
+const monsterHealtText = document.querySelector("#monsterHealth");
+const locations = [
+    {
+        name: "town square",
+        "button text":["go to store", "go to cave", "fight dragon"],
+        "button functions": [goStor, goCave, fightDragon],
+        text: "You are in the town squre. You see a sign that says \*store.\*"
+
+    },
+    {
+        name: "store",
+        "button text":["buy 10 health", "buy weapon(30 gold)", "go to town square"],
+        "button functions": [buyWeapon, buyHealth, goTown],
+        text: "You enter th store"
+
+    },
+    {
+        name: "cave",
+        "button text":["fight slime", "fight fanged beast", "go to town square"],
+        "button functions": [fightslime, fightbeast, gotown],
+        text: "You enter th store"
+
+    }
+]
+
+
+//initialize buttons
+button1.onclick = goStore;
+button2.onlick = goCave;
+button3.onclick = fightDragon;
+
+function update() {
+    button1.innerText = loccation["button text"][0];
+    button2.innerText = loccation["button text"][1];
+    button3.innerText = loccation["button text"][2];
+
+    button1.onclick = loccation["button functions"][0];
+    button2.onlick = loccation["button functions"][1];
+    button3.onclick = loccation["button functions"][2];
+    text.innerText = loccation["text"]
+
+}
+
+function goTown("button1") {
+   update(locations[0]);
+}
+
+function goStore() {
+   update(locations[1]);
+}
+function goCave() {
+   console.log("going to cave")
+}
+function fightDragon() {
+   console.log("fighting dragon")
+}
+
+function buyHealth() {
+    
+}
+
+function buyWeapon() {
+    
+
+}
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    <div id="game">
+        <div id="stats">
+            <span class="stats">XP:<strong><span id="xPText">0</span></strong></span>
+            <span class="stats">Health:<strong><span id="healthText:">100</span></strong></span>
+            <span class="stats">Gold:<strong><span id="goldText":>50</span></strong></span>
+        </div>
+        <div id="controls">
+            <button class="button1">Go to store</button>
+            <button class="button2">Go to cave</button>
+            <button class="button3">Fight dragon</button>
+        </div>
+        <div id="monsterstats">
+            <span class="stat">monster Name: <strong><span id="monsterName"></span></strong>
+        <span>
+            <span class="stat">Health: <storng></span id="monsterHeath"></span></strong>
+        </span>
+        </div>
+        <div>
+            <div id="text">welcome to dragon repeller. You must defeat the dragon that is 
+                preventing people from leaving the town. You are in the town square. Where do you want to go? Use the button above.
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
